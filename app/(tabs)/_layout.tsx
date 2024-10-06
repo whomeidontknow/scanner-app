@@ -4,6 +4,7 @@ import React from 'react';
 import { TabBarIcon } from '@/components/navigation/TabBarIcon';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { AntDesign, FontAwesome5, MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -24,11 +25,29 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="scanner"
         options={{
-          title: 'Explore',
+          title: 'Scanner',
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
+            <MaterialIcons name="qr-code-scanner" size={24} color={color} />
+          ),
+        }}
+      />
+        <Tabs.Screen
+          name="qrlist"
+          options={{
+            title: 'QrList',
+            tabBarIcon: ({ color, focused }) => (
+              <FontAwesome5 name="list" size={24} color={color} />
+            ),
+          }}
+        />
+      <Tabs.Screen
+        name="setting"
+        options={{
+          title: 'Setting',
+          tabBarIcon: ({ color, focused }) => (
+            <AntDesign name="setting" size={24} color={color} />
           ),
         }}
       />
